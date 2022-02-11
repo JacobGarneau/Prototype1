@@ -17,6 +17,7 @@ public class corridorRotation : MonoBehaviour
     private float pushSize = 1.0f;
     private string rotationDirection = "none";
     private float xTarget;
+    private Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class corridorRotation : MonoBehaviour
         currentRotation = rotationTarget.transform.localRotation.eulerAngles.x;
         targetTransform = rotationTarget.GetComponent<Transform>();
         xTarget = targetTransform.localRotation.x;
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class corridorRotation : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray theRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray theRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit rayHitInfo;
             if (Physics.Raycast(theRay, out rayHitInfo))
             {
@@ -46,7 +48,7 @@ public class corridorRotation : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            Ray theRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray theRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit rayHitInfo;
             if (Physics.Raycast(theRay, out rayHitInfo))
             {
