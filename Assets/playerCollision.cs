@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerCollision : MonoBehaviour
 {
     public string deathTag;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,4 +26,6 @@ public class playerCollision : MonoBehaviour
             Application.LoadLevel(Application.loadedLevel);
         }
     }
+
+
 }
