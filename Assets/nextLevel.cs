@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class nextLevel : MonoBehaviour
 {
     public string nextScene;
+    public string playerTag;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,9 @@ public class nextLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        SceneManager.LoadScene(nextScene);
+        if(collision.gameObject.tag == playerTag)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 }
